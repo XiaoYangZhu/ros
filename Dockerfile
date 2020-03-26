@@ -33,7 +33,9 @@ RUN apt-get update && apt-get upgrade
 RUN apt-get update && apt-get install -y ros-melodic-ros-base && rm -rf /var/lib/apt/lists/*
 # install dependencies
 RUN apt-get update && apt-get install -y python-rosinstall python-rosinstall-generator python-wstool build-essential && rm -rf /var/lib/apt/lists/*
+
 # initialize rosdep
+RUN apt-get install python-rosdep
 RUN rosdep init && rosdep update
 
 # install colcon
