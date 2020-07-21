@@ -27,9 +27,9 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C1CF6E31E6
 #RUN echo "deb-src http://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse" >> /etc/apt/sources.list
 #RUN echo "deb-src http://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse" >> /etc/apt/sources.list
 #RUN echo "deb-src http://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse" >> /etc/apt/sources.list
-#RUN echo "deb http://packages.ros.org/ros/ubuntu bionic main restricted universe multiverse" > /etc/apt/sources.list.d/ros-latest.list
-RUN lsb_release -sc
-RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
+RUN echo "deb http://packages.ros.org/ros/ubuntu bionic main restricted universe multiverse" > /etc/apt/sources.list.d/ros-latest.list
+#RUN lsb_release -sc
+#RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
 #RUN apt-add-repository -y "deb http://archive.canonical.com/ubuntu $(lsb_release -sc) main partner"
 RUN cat /etc/apt/sources.list.d/ros-latest.list
 
