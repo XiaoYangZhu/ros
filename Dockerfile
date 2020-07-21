@@ -30,6 +30,7 @@ RUN apt-key add gazebo.key
 RUN apt-get update && apt-get upgrade
 
 # install ros packages
+RUN apt-get update && apt-get install -y ros-melodic-actionlib ros-melodic-bond-core ros-melodic-dynamic-reconfigure ros-melodic-nodelet-core ros-melodic-ros-core && rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y ros-melodic-ros-base && rm -rf /var/lib/apt/lists/*
 # install dependencies
 RUN apt-get update && apt-get install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential && rm -rf /var/lib/apt/lists/*
