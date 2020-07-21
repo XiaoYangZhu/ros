@@ -15,9 +15,12 @@ ENV ROS_DISTRO melodic
 
 ## install ros http://wiki.ros.org/melodic/Installation/Ubuntu
 # setup ros keys 
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+#RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 # setup sources.list
-RUN echo "deb http://packages.ros.org/ros/ubuntu bionic main" > /etc/apt/sources.list.d/ros-latest.list
+#RUN echo "deb http://packages.ros.org/ros/ubuntu bionic main" > /etc/apt/sources.list.d/ros-latest.list
+RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
+RUN apt update
 
 ## install ros2
 # setup ros2 keys
@@ -30,7 +33,7 @@ RUN apt-key add gazebo.key
 RUN apt-get update && apt-get upgrade
 
 # install ros packages
-RUN apt-get update && apt-get install -y ros-melodic-actionlib ros-melodic-bond-core ros-melodic-dynamic-reconfigure ros-melodic-nodelet-core ros-melodic-ros-core && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && apt-get install -y ros-melodic-actionlib ros-melodic-bond-core ros-melodic-dynamic-reconfigure ros-melodic-nodelet-core ros-melodic-ros-core && rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y ros-melodic-ros-base && rm -rf /var/lib/apt/lists/*
 # install dependencies
 RUN apt-get update && apt-get install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential && rm -rf /var/lib/apt/lists/*
