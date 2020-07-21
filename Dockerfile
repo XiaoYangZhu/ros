@@ -17,6 +17,16 @@ ENV ROS_DISTRO melodic
 # setup ros keys 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 # setup sources.list
+RUN echo "deb http://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb-src http://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb-src http://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb-src http://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb-src http://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb-src http://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse" >> /etc/apt/sources.list
 RUN echo "deb http://packages.ros.org/ros/ubuntu bionic main restricted universe multiverse" > /etc/apt/sources.list.d/ros-latest.list
 #RUN lsb_release -sc
 #RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
@@ -35,7 +45,7 @@ RUN apt-get update && apt-get upgrade
 
 # install ros packages
 #RUN apt-get update && apt-get install -y ros-melodic-actionlib ros-melodic-bond-core ros-melodic-dynamic-reconfigure ros-melodic-nodelet-core ros-melodic-ros-core && rm -rf /var/lib/apt/lists/*
-RUN apt-get install gazebo9-common libgazebo9-dev gazebo9 ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-dev ros-melodic-gazebo-ros-control ros-melodic-gazebo-ros ros-melodic-urdf-sim-tutorial ros-melodic-simulators
+#RUN apt-get install gazebo9-common libgazebo9-dev gazebo9 ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-dev ros-melodic-gazebo-ros-control ros-melodic-gazebo-ros ros-melodic-urdf-sim-tutorial ros-melodic-simulators
 RUN apt-get update && apt-get install -y ros-melodic-ros-base && rm -rf /var/lib/apt/lists/*
 # install dependencies
 RUN apt-get update && apt-get install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential && rm -rf /var/lib/apt/lists/*
