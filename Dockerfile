@@ -6,7 +6,7 @@ RUN apt-get update && apt-get -y upgrade
 RUN apt-get install -y curl wget cmake 
 
 # set up timezone
-RUN echo 'Etc/UTC' > /etc/timezone && ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime
+#RUN echo 'Etc/UTC' > /etc/timezone && ln -s /usr/share/zoneinfo/Etc/UTC /etc/localtime
 RUN apt-get update && apt-get install -q -y tzdata && rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y dirmngr gnupg2 && rm -rf /var/lib/apt/lists/*
 
